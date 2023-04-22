@@ -158,7 +158,29 @@ From the plot, we observe that the slope changes significantly around index 30, 
 > What is the interpretation of the U, Σ, and V matrices?
 The SVD decomposes the data matrix X_train into three matrices U, Σ, and V such that $$X_train=UΣV^T$$. The matrix U contains the left singular vectors, which represent the principal components of the data. The matrix V contains the right singular vectors, which represent the basis functions that reconstruct the data. The matrix Σ contains the singular values, which represent the importance of each component.
 
+The following is the 3D plot of the first three V modes. We color the points by their bigit label to visualize the seperation of the digits in PCA space. 
 
+![image](https://user-images.githubusercontent.com/121909443/233762885-76d93d3d-7778-44e6-a9aa-606a95675e92.png)
+
+In building our own classifier to identify individual digits in the training set, we found that 4 and 9 are the most difficult to seperate. It has an accuracy of around 53%
+![image](https://user-images.githubusercontent.com/121909443/233763016-3e99cdd5-a869-4bdf-badd-5437047b2670.png)
+
+We found that 0 and 1 is the easiest to seperate. It has a accuaracy of 99%
+![image](https://user-images.githubusercontent.com/121909443/233763035-6748ecba-6be5-4b7f-9b26-b7d232177226.png)
+
+
+**Comparing SVM and decision tree**
+For the MNIST dataset, both SVM and decision tree done a good job. However, the performance of these classifier pay depends on the specific pair of digits being classified. For example, like what we did before, some pairs of numbers are more difficult to pair than others. Noted that currently, convolutional neural networks (CNN) have since supassed both models in terms of the accuracy on the MNIST dataset. Despite that SVM and decision tree is a really good baseline for comparison and may still be suitable for certain applications. 
+
+**Comparing performance between LDA SVM and decision tree**
+In general, all three classifiers performed well on the training set with accuracy above 99%. However, the accuracy dropped when applied to the test set, with LDA being the least affected, followed by SVM and then decision tree. This may indicate overfitting on the training set.
+
+Overall, it seems that LDA and SVM classifiers performed similarly in most cases, while the decision tree classifier performed slightly worse. However, the choice of classifier may depend on the specific application and the trade-offs between accuracy, interpretability, and computational complexity.
 
 
 ## Summary and Conclusions
+In this assignment we have explored and analyze the MNIST dataset. We used PCA to reduce the dimensionality of the data and also built classifiers using LDA, SVM, and decision trees to identify individual digits in the training dataset. 
+
+In conclusion, LDA is best to reasonably identify and classify two and three digits while SVM and decision trees preformed similarly to LDA in seperating all ten digits. Also, the digits that were most difficult to seperate are 4 and 9. The easiest to seperate is 0 and 1. LDA performed the worst on the difficult pair, with an accuracy of only 54.9% on the test set, while SVM and decision trees performed better with accuracies of 80.6% and 84.1%, respectively. On the easy pair, LDA performed the best with an accuracy of 99.1% on the test set, while SVM and decision trees also performed well with accuracies of 98.9% and 97.8%, respectively.
+
+All in all, we can see that PCA is good at reducing dimensionality and the performance of different classifiers. Our findings suggest that different classifiers may perform differently depending on the pair of the digit being seperated, and it is important to evaluate their performance on both training and test sets to assess their generalization ability. 
