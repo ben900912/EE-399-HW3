@@ -93,7 +93,10 @@ plt.show()
 
 The next task is to build a classifier for digit identification, we first need to split our data into training and test sets. We will use the first 60,000 images for training and the remaining 10,000 for testing. We will also use PCA to reduce the dimensionality of the data before applying the classifiers.
 
-**1. Two Digit LDA Classifier **
+
+
+**1. Two Digit LDA Classifier**
+
 In order to build a classifier to identify 0 and 1. We use the first two principal components of the PCA transformed data and apply LDA to classify the images.
 ```python
 # Use PCA to reduce dimensionality of data
@@ -107,6 +110,7 @@ lda.fit(X_train_pca, y_train)
 ```
 
 **2. Three digit LDA classifier**
+
 Next we build a classifier to identify the digits 0, 1, and 2. We will use the first three principal components of the PCA transformed data and apply LDA to classify the images.
 
 ```python
@@ -120,7 +124,8 @@ lda = LDA()
 lda.fit(X_train_pca, y_train)
 ```
 
-** Most difficult Pair of Digit**
+**3. Most difficult Pair of Digit**
+
 To determine which two digits are most difficult to separate, we can use LDA to classify each pair of digits and compare the accuracy. We find that the most difficult pair to separate is 4 and 9.
 
 ```python
@@ -144,14 +149,16 @@ y_pred_49 = lda_49.predict(X
 > What does the singular value spectrum look like and how many modes are necessary for good
 image reconstruction? (i.e. what is the rank r of the digit space?)
 
+![image](https://user-images.githubusercontent.com/121909443/233538737-b87495d5-71c7-4cd6-a53f-5bbcb4f7abaf.png)
 
+From the plot, we observe that the singular values decay rapidly, with the first few values dominating the spectrum. To determine the rank r of the digit space, we need to select the number of modes necessary for good image reconstruction. We can use the elbow method to determine the number of modes, which corresponds to the point where the slope of the curve changes significantly.
+
+From the plot, we observe that the slope changes significantly around index 30, indicating that we can choose r=30 modes for good image reconstruction.
 
 > What is the interpretation of the U, Σ, and V matrices?
 The SVD decomposes the data matrix X_train into three matrices U, Σ, and V such that $$X_train=UΣV^T$$. The matrix U contains the left singular vectors, which represent the principal components of the data. The matrix V contains the right singular vectors, which represent the basis functions that reconstruct the data. The matrix Σ contains the singular values, which represent the importance of each component.
 
 
-![image](https://user-images.githubusercontent.com/121909443/233538737-b87495d5-71c7-4cd6-a53f-5bbcb4f7abaf.png)
 
-From the plot, we observe that the singular values decay rapidly, with the first few values dominating the spectrum. 
 
 ## Summary and Conclusions
