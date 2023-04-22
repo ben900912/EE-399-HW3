@@ -149,7 +149,11 @@ y_pred_49 = lda_49.predict(X
 > What does the singular value spectrum look like and how many modes are necessary for good
 image reconstruction? (i.e. what is the rank r of the digit space?)
 
-![image](https://user-images.githubusercontent.com/121909443/233538737-b87495d5-71c7-4cd6-a53f-5bbcb4f7abaf.png)
+<p align="center" width="100%">
+    <img width="60%" src="https://user-images.githubusercontent.com/121909443/233538737-b87495d5-71c7-4cd6-a53f-5bbcb4f7abaf.png"> 
+    <em>Figure 2: Decay of the singular values</em>
+</p>
+
 
 From the plot, we observe that the singular values decay rapidly, with the first few values dominating the spectrum. To determine the rank r of the digit space, we need to select the number of modes necessary for good image reconstruction. We can use the elbow method to determine the number of modes, which corresponds to the point where the slope of the curve changes significantly.
 
@@ -160,7 +164,10 @@ The SVD decomposes the data matrix X_train into three matrices U, Σ, and V such
 
 The following is the 3D plot of the first three V modes. We color the points by their bigit label to visualize the seperation of the digits in PCA space. 
 
-![image](https://user-images.githubusercontent.com/121909443/233762885-76d93d3d-7778-44e6-a9aa-606a95675e92.png)
+<p align="center" width="100%">
+    <img width="60%" src="https://user-images.githubusercontent.com/121909443/233762885-76d93d3d-7778-44e6-a9aa-606a95675e92.png"> 
+    <em>Figure 3: 3D plot of the first three V modes.</em>
+</p>
 
 In building our own classifier to identify individual digits in the training set, we found that 4 and 9 are the most difficult to seperate. It has an accuracy of around 53%
 
