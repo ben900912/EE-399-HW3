@@ -163,9 +163,13 @@ The following is the 3D plot of the first three V modes. We color the points by 
 ![image](https://user-images.githubusercontent.com/121909443/233762885-76d93d3d-7778-44e6-a9aa-606a95675e92.png)
 
 In building our own classifier to identify individual digits in the training set, we found that 4 and 9 are the most difficult to seperate. It has an accuracy of around 53%
+
+
 ![image](https://user-images.githubusercontent.com/121909443/233763016-3e99cdd5-a869-4bdf-badd-5437047b2670.png)
 
 We found that 0 and 1 is the easiest to seperate. It has a accuaracy of 99%
+
+
 ![image](https://user-images.githubusercontent.com/121909443/233763035-6748ecba-6be5-4b7f-9b26-b7d232177226.png)
 
 
